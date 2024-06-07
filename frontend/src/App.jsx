@@ -1,12 +1,15 @@
-import React from 'react'
-import SignupForm from './components/auth/SignupForm'
+import React from "react";
+import SignupForm from "./components/auth/SignupForm";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
-    <div>
-      <SignupForm/>
-    </div>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<SignupForm />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
