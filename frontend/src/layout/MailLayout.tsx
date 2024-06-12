@@ -13,7 +13,7 @@ import ArchiveIcon from '@/components/shared-component/ArchiveIcon/ArchiveIcon';
 import SearchIcon from '@/components/shared-component/SearchIcon/SearchIcon';
 import StarIcon from '@/components/shared-component/StarIcon/StarIcon';
 import MoveHorizontalIcon from '@/components/shared-component/MoveHorizontalIcon/MoveHorizontalIcon';
-import Trash2Icon from '@/components/shared-component/Trash2Icon/Trash2Icon'; // Assuming this component exists
+import Trash2Icon from '@/components/shared-component/Trash2Icon/Trash2Icon'; 
 
 const MailLayout: React.FC = () => {
     return (
