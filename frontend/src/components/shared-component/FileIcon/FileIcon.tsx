@@ -1,6 +1,4 @@
-import React from 'react';
-
-export default function ArchiveIcon(props: React.SVGProps<SVGSVGElement>) {
+export default function FileIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
         <svg
             {...props}
@@ -14,9 +12,8 @@ export default function ArchiveIcon(props: React.SVGProps<SVGSVGElement>) {
             strokeLinecap="round"
             strokeLinejoin="round"
         >
-            <rect width="20" height="5" x="2" y="3" rx="1" />
-            <path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" />
-            <path d="M10 12h4" />
+            <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+            <path d="M14 2v4a2 2 0 0 0 2 2h4" />
         </svg>
-    );
+    )
 }

@@ -1,256 +1,112 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem } from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
-import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import MailIcon from '@/components/shared-component/MailIcon/MailIcon';
+import FileIcon from '@/components/shared-component/FileIcon/FileIcon';
 import InboxIcon from '@/components/shared-component/InboxIcon/InboxIcon';
-import ArchiveIcon from '@/components/shared-component/ArchiveIcon/ArchiveIcon';
+import MailIcon from '@/components/shared-component/MailIcon/MailIcon';
 import SearchIcon from '@/components/shared-component/SearchIcon/SearchIcon';
-import StarIcon from '@/components/shared-component/StarIcon/StarIcon';
-import MoveHorizontalIcon from '@/components/shared-component/MoveHorizontalIcon/MoveHorizontalIcon';
-import Trash2Icon from '@/components/shared-component/Trash2Icon/Trash2Icon'; 
+import SendIcon from '@/components/shared-component/SendIcon/SendIcon';
+import Trash2Icon from '@/components/shared-component/Trash2Icon/Trash2Icon';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 const MailLayout: React.FC = () => {
-    return (
-        <div className="grid min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr]">
-            <div className="hidden border-r bg-gray-100/40 lg:block dark:bg-gray-800/40">
-                <div className="flex h-[60px] items-center px-6">
-                    <Link to="#" className="flex items-center gap-2 font-semibold" >
-                        <MailIcon className="h-6 w-6" />
-                        <span>Acme Email</span>
-                    </Link>
-                </div>
-                <div className="flex-1">
-                    <nav className="grid items-start px-4 text-sm font-medium">
-                        <Link
-                            to="#"
-                            className="flex items-center gap-3 rounded-lg bg-gray-100 px-3 py-2 text-gray-900 transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50"
-
-                        >
-                            <InboxIcon className="h-4 w-4" />
-                            Inbox
-                            <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">12</Badge>
-                        </Link>
-                        <Link
-                            to="#"
-                            className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-
-                        >
-                            <ArchiveIcon className="h-4 w-4" />
-                            Archived
-                        </Link>
-                        <Link
-                            to="#"
-                            className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-
-                        >
-                            <Trash2Icon className="h-4 w-4" />
-                            Trash
-                        </Link>
-                    </nav>
-                </div>
-            </div>
-            <div className="flex flex-col">
-                <header className="flex h-14 lg:h-[60px] items-center gap-4 border-b bg-gray-100/40 px-6 dark:bg-gray-800/40">
-                    <div className="flex-1">
-                        <h1 className="font-semibold text-lg">Inbox</h1>
-                    </div>
-                    <div className="flex flex-1 items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
-                        <form className="ml-auto flex-1 sm:flex-initial">
-                            <div className="relative">
-                                <SearchIcon className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500 dark:text-gray-400" />
-                                <Input
-                                    type="search"
-                                    placeholder="Search emails..."
-                                    className="pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px] bg-white"
-                                />
-                            </div>
-                        </form>
-                        <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" size="icon" className="rounded-full">
-                                    <img src="/placeholder.svg" width="32" height="32" className="rounded-full" alt="Avatar" />
-                                    <span className="sr-only">Toggle user menu</span>
-                                </Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end">
-                                <DropdownMenuLabel>John Doe</DropdownMenuLabel>
-                                <DropdownMenuSeparator />
-                                <DropdownMenuItem>Settings</DropdownMenuItem>
-                                <DropdownMenuItem>Support</DropdownMenuItem>
-                                <DropdownMenuSeparator />
-                                <DropdownMenuItem>Logout</DropdownMenuItem>
-                            </DropdownMenuContent>
-                        </DropdownMenu>
-                    </div>
-                </header>
-                <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
-                    <div className="border shadow-sm rounded-lg p-2">
-                        <Table>
-                            <TableHeader>
-                                <TableRow>
-                                    <TableHead className="w-[40px]">
-                                        <Checkbox />
-                                    </TableHead>
-                                    <TableHead className="w-[40px]">
-                                        <StarIcon className="w-4 h-4" />
-                                    </TableHead>
-                                    <TableHead className="min-w-[200px]">Subject</TableHead>
-                                    <TableHead className="min-w-[150px]">From</TableHead>
-                                    <TableHead className="hidden md:table-cell min-w-[150px]">Date</TableHead>
-                                    <TableHead className="text-right">Actions</TableHead>
-                                </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                                <TableRow>
-                                    <TableCell>
-                                        <Checkbox />
-                                    </TableCell>
-                                    <TableCell>
-                                        <StarIcon className="w-4 h-4 text-yellow-500" />
-                                    </TableCell>
-                                    <TableCell className="font-medium">Quarterly Report Update</TableCell>
-                                    <TableCell>
-                                        <div className="flex items-center gap-2">
-                                            <Avatar className="h-6 w-6">
-                                                <img src="/placeholder.svg" alt="@shadcn" />
-                                                <AvatarFallback>JD</AvatarFallback>
-                                            </Avatar>
-                                            <span>John Doe</span>
-                                        </div>
-                                    </TableCell>
-                                    <TableCell className="hidden md:table-cell">May 15, 2023</TableCell>
-                                    <TableCell className="text-right">
-                                        <DropdownMenu>
-                                            <DropdownMenuTrigger asChild>
-                                                <Button variant="ghost" size="icon">
-                                                    <MoveHorizontalIcon className="w-4 h-4" />
-                                                    <span className="sr-only">Actions</span>
-                                                </Button>
-                                            </DropdownMenuTrigger>
-                                            <DropdownMenuContent align="end">
-                                                <DropdownMenuItem>Open</DropdownMenuItem>
-                                                <DropdownMenuItem>Archive</DropdownMenuItem>
-                                                <DropdownMenuItem>Delete</DropdownMenuItem>
-                                            </DropdownMenuContent>
-                                        </DropdownMenu>
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell>
-                                        <Checkbox />
-                                    </TableCell>
-                                    <TableCell>
-                                        <StarIcon className="w-4 h-4" />
-                                    </TableCell>
-                                    <TableCell className="font-medium">New Feature Release</TableCell>
-                                    <TableCell>
-                                        <div className="flex items-center gap-2">
-                                            <Avatar className="h-6 w-6">
-                                                <img src="/placeholder.svg" alt="@shadcn" />
-                                                <AvatarFallback>OD</AvatarFallback>
-                                            </Avatar>
-                                            <span>Olivia Davis</span>
-                                        </div>
-                                    </TableCell>
-                                    <TableCell className="hidden md:table-cell">May 12, 2023</TableCell>
-                                    <TableCell className="text-right">
-                                        <DropdownMenu>
-                                            <DropdownMenuTrigger asChild>
-                                                <Button variant="ghost" size="icon">
-                                                    <MoveHorizontalIcon className="w-4 h-4" />
-                                                    <span className="sr-only">Actions</span>
-                                                </Button>
-                                            </DropdownMenuTrigger>
-                                            <DropdownMenuContent align="end">
-                                                <DropdownMenuItem>Open</DropdownMenuItem>
-                                                <DropdownMenuItem>Archive</DropdownMenuItem>
-                                                <DropdownMenuItem>Delete</DropdownMenuItem>
-                                            </DropdownMenuContent>
-                                        </DropdownMenu>
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell>
-                                        <Checkbox />
-                                    </TableCell>
-                                    <TableCell>
-                                        <StarIcon className="w-4 h-4" />
-                                    </TableCell>
-                                    <TableCell className="font-medium">Invitation to Team Offsite</TableCell>
-                                    <TableCell>
-                                        <div className="flex items-center gap-2">
-                                            <Avatar className="h-6 w-6">
-                                                <img src="/placeholder.svg" alt="@shadcn" />
-                                                <AvatarFallback>SA</AvatarFallback>
-                                            </Avatar>
-                                            <span>Sarah Anderson</span>
-                                        </div>
-                                    </TableCell>
-                                    <TableCell className="hidden md:table-cell">May 10, 2023</TableCell>
-                                    <TableCell className="text-right">
-                                        <DropdownMenu>
-                                            <DropdownMenuTrigger asChild>
-                                                <Button variant="ghost" size="icon">
-                                                    <MoveHorizontalIcon className="w-4 h-4" />
-                                                    <span className="sr-only">Actions</span>
-                                                </Button>
-                                            </DropdownMenuTrigger>
-                                            <DropdownMenuContent align="end">
-                                                <DropdownMenuItem>Open</DropdownMenuItem>
-                                                <DropdownMenuItem>Archive</DropdownMenuItem>
-                                                <DropdownMenuItem>Delete</DropdownMenuItem>
-                                            </DropdownMenuContent>
-                                        </DropdownMenu>
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell>
-                                        <Checkbox />
-                                    </TableCell>
-                                    <TableCell>
-                                        <StarIcon className="w-4 h-4" />
-                                    </TableCell>
-                                    <TableCell className="font-medium">Quarterly Sales Report</TableCell>
-                                    <TableCell>
-                                        <div className="flex items-center gap-2">
-                                            <Avatar className="h-6 w-6">
-                                                <img src="/placeholder.svg" alt="@shadcn" />
-                                                <AvatarFallback>MJ</AvatarFallback>
-                                            </Avatar>
-                                            <span>Michael Johnson</span>
-                                        </div>
-                                    </TableCell>
-                                    <TableCell className="hidden md:table-cell">May 5, 2023</TableCell>
-                                    <TableCell className="text-right">
-                                        <DropdownMenu>
-                                            <DropdownMenuTrigger asChild>
-                                                <Button variant="ghost" size="icon">
-                                                    <MoveHorizontalIcon className="w-4 h-4" />
-                                                    <span className="sr-only">Actions</span>
-                                                </Button>
-                                            </DropdownMenuTrigger>
-                                            <DropdownMenuContent align="end">
-                                                <DropdownMenuItem>Open</DropdownMenuItem>
-                                                <DropdownMenuItem>Archive</DropdownMenuItem>
-                                                <DropdownMenuItem>Delete</DropdownMenuItem>
-                                            </DropdownMenuContent>
-                                        </DropdownMenu>
-                                    </TableCell>
-                                </TableRow>
-                            </TableBody>
-                        </Table>
-                    </div>
-                </main>
-            </div>
+  return (
+    <div className="flex flex-col h-screen">
+      <header className="bg-primary text-primary-foreground py-4 px-6 flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <Link to="#" className="flex items-center gap-2">
+            <MailIcon className="w-6 h-6" />
+            <span className="text-xl font-bold">Mail App</span>
+          </Link>
+          <nav className="hidden md:flex items-center gap-6">
+            <Link to="#" className="hover:underline">
+              Inbox
+            </Link>
+            <Link to="#" className="hover:underline">
+              Sent
+            </Link>
+            <Link to="#" className="hover:underline">
+              Drafts
+            </Link>
+            <Link to="#" className="hover:underline">
+              Trash
+            </Link>
+          </nav>
         </div>
-    );
+        <div className="flex items-center gap-4">
+          <div className="relative">
+            <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+            <Input
+              type="text"
+              placeholder="Search emails"
+              className="pl-10 pr-4 py-2 rounded-md bg-primary-foreground/10 focus:outline-none focus:ring-2 focus:ring-primary-foreground/50"
+            />
+          </div>
+          <Button variant="ghost" size="icon" className="rounded-full">
+            <img src="/placeholder.svg" width="32" height="32" className="rounded-full" alt="Avatar" />
+            <span className="sr-only">Toggle user menu</span>
+          </Button>
+        </div>
+      </header>
+      <div className="flex-1 flex">
+        <div className="bg-muted border-r px-4 py-6 flex flex-col gap-4 w-64 hidden md:flex">
+          <Button variant="ghost" className="justify-start gap-2">
+            <InboxIcon className="w-5 h-5" />
+            Inbox
+          </Button>
+          <Button variant="ghost" className="justify-start gap-2">
+            <SendIcon className="w-5 h-5" />
+            Sent
+          </Button>
+          <Button variant="ghost" className="justify-start gap-2">
+            <FileIcon className="w-5 h-5" />
+            Drafts
+          </Button>
+          <Button variant="ghost" className="justify-start gap-2">
+            <Trash2Icon className="w-5 h-5" />
+            Trash
+          </Button>
+        </div>
+        <div className="flex-1 p-6 overflow-y-auto">
+          <div className="grid gap-4">
+            <article className="flex flex-col gap-2 p-4 border rounded-md hover:bg-accent transition-colors">
+              <div className="flex items-center justify-between">
+                <div className="font-medium">John Doe</div>
+                <div className="text-xs text-muted-foreground">2 days ago</div>
+              </div>
+              <div className="font-medium">Re: Important Update</div>
+              <p className="text-sm text-muted-foreground line-clamp-2">
+                Dear John, I hope this email finds you well. I wanted to follow up on the important update I mentioned
+                in my previous message. Please let me know if you have any questions or concerns.
+              </p>
+            </article>
+            <article className="flex flex-col gap-2 p-4 border rounded-md hover:bg-accent transition-colors">
+              <div className="flex items-center justify-between">
+                <div className="font-medium">Jane Smith</div>
+                <div className="text-xs text-muted-foreground">1 week ago</div>
+              </div>
+              <div className="font-medium">New Project Proposal</div>
+              <p className="text-sm text-muted-foreground line-clamp-2">
+                Hi there, I wanted to share a new project proposal with you. I think it could be a great opportunity for
+                us to collaborate. Please take a look and let me know what you think.
+              </p>
+            </article>
+            <article className="flex flex-col gap-2 p-4 border rounded-md hover:bg-accent transition-colors">
+              <div className="flex items-center justify-between">
+                <div className="font-medium">Marketing Team</div>
+                <div className="text-xs text-muted-foreground">3 days ago</div>
+              </div>
+              <div className="font-medium">New Product Launch</div>
+              <p className="text-sm text-muted-foreground line-clamp-2">
+                Dear all, we are excited to announce the launch of our new product! This is a game-changer in the
+                industry, and we can't wait for you to try it out. Please let me know if you have any questions.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default MailLayout;
-

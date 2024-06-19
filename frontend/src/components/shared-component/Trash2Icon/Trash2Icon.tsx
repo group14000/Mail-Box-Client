@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Trash2Icon(props: React.SVGProps<SVGSVGElement>) {
     return (
         <svg
