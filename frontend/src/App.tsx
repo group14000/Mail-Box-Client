@@ -7,11 +7,12 @@ import MailLayout from './layout/MailLayout'
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-    <MailLayout/>
-      <Routes>
-        <Route path='/signup' element={<SignupForm />} />
-        <Route path='/login' element={<LoginForm />} />
-      </Routes>
+      <MailLayout>
+        <Routes>
+          <Route path='/signup' element={<SignupForm />} />
+          <Route path='/login' element={<LoginForm />} />
+        </Routes>
+      </MailLayout>
     </BrowserRouter>
   )
 }
