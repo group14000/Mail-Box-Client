@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Menu, Inbox, Send, FileText, X, Search, User } from 'lucide-react';
+import { Menu, Inbox, Send, FileText, X, Search, User, Trash } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
+import styles from './Navbar.module.css';
 
 const Navbar: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -10,10 +11,11 @@ const Navbar: React.FC = () => {
         { text: 'Inbox', to: '/', icon: <Inbox className="w-5 h-5" /> },
         { text: 'Sent', to: '/sent', icon: <Send className="w-5 h-5" /> },
         { text: 'Drafts', to: '/drafts', icon: <FileText className="w-5 h-5" /> },
+        { text: 'Trash', to: '/drafts', icon: <Trash className="w-5 h-5" /> },
     ];
 
     return (
-        <nav className="bg-white border-b border-gray-200">
+        <nav className={`border-b border-gray-200 ${styles.navbar}`}>
             <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                 <div className="relative flex items-center justify-between h-16">
                     <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -28,8 +30,8 @@ const Navbar: React.FC = () => {
                         </Button>
                     </div>
                     <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                        <div className="flex-shrink-0 text-2xl font-bold text-gray-800">
-                            MyApp
+                        <div className="flex-shrink-0 text-2xl font-bold">
+                            <img src='/MailMate.png' alt='logo' className='w-36 h-10' />
                         </div>
                         <div className="hidden sm:block sm:ml-6">
                             <div className="flex space-x-4">
@@ -37,17 +39,17 @@ const Navbar: React.FC = () => {
                                     <a
                                         key={item.text}
                                         href={item.to}
-                                        className="text-gray-700 hover:bg-gray-300 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium flex items-center"
+                                        className="text-white hover:bg-text-fuchsia-500 hover:text-fuchsia-500 px-3 py-2 rounded-md text-sm font-medium flex items-center"
                                     >
                                         {item.icon}
-                                        <span className="ml-2">{item.text}</span>
+                                        <span className="ml-2 text-white">{item.text}</span>
                                     </a>
                                 ))}
                             </div>
                         </div>
                     </div>
                     <div className="flex-1 hidden sm:flex items-center justify-center">
-                        <div className="relative text-gray-600">
+                        <div className="relative text-fuchsia-500">
                             <Input
                                 type="search"
                                 name="search"
@@ -74,10 +76,10 @@ const Navbar: React.FC = () => {
                         <a
                             key={item.text}
                             href={item.to}
-                            className="text-gray-700 hover:bg-gray-300 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium flex items-center"
+                            className="text-white hover:bg-gray-300 hover:text-gray-90 px-3 py-2 rounded-md text-base font-medium flex items-center"
                         >
                             {item.icon}
-                            <span className="ml-2">{item.text}</span>
+                            <span className="ml-2 text-white">{item.text}</span>
                         </a>
                     ))}
                     <div className="relative text-gray-600 mt-3">
